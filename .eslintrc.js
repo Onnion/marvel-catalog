@@ -1,23 +1,44 @@
 module.exports = {
-    parser: "@typescript-eslint/parser", // Specifies the ESLint parser
-    parserOptions: {
-        ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
-        sourceType: "module", // Allows for the use of imports
-        ecmaFeatures: {
-            jsx: true // Allows for the parsing of JSX
-        }
-    },
-    settings: {
-        react: {
-            version: "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
-        }
+    env: {
+      browser: true,
+      es6: true,
+      jest: true,
     },
     extends: [
-        "plugin:react/recommended", // Uses the recommended rules from @eslint-plugin-react
-        "plugin:@typescript-eslint/recommended", // Uses the recommended rules from @typescript-eslint/eslint-plugin
+      'react-app',
+      'airbnb',
+      'plugin:@typescript-eslint/recommended',
     ],
-    rules: {
-        // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-        // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+    globals: {
+      Atomics: 'readonly',
+      SharedArrayBuffer: 'readonly',
     },
-};
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+      ecmaVersion: 2018,
+      sourceType: 'module',
+    },
+    plugins: ['react', 'import', 'jsx-a11y'],
+    rules: {
+      'react/jsx-filename-extension': [
+        'error',
+        {
+          extensions: ['.tsx', '.jsx'],
+        },
+      ],
+      'import/prefer-default-export': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-member-accessibility': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+    },
+    settings: {
+      'import/parsers': {
+        '@typescript-eslint/parser': ['.ts', '.tsx', '.jsx'],
+      },
+      'import/resolver': {
+        typescript: {},
+      },
+    },
+  };

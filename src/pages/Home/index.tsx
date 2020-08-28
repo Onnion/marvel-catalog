@@ -1,20 +1,27 @@
 import React, { useEffect } from 'react';
 import { Title } from './styles';
-import { api } from '../../services/marvel';
+import { getComics } from '../../services/marvel';
+import { useDispatch, useSelector } from 'react-redux';
+import { ComicsTypes } from '../../store/ducks/comics/types';
+import ComicList from './../../components/ComicList';
+import { State } from '../../store';
+import Loader from '../../components/Loader';
 
 export const Home: React.FC = () => {
-
-    async function getComics() {
-        const comics = await api.get('/comics');
-        console.log(comics);
-    }
+    const { loading } = useSelector((state: State) => state.comics);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        getComics();
+        dispatch({ type: ComicsTypes.LOAD });
     }, []);
 
     return (
-        <Title>Home</Title>
+        <>
+            {loading
+                ? <Loader />
+                : <ComicList />
+            }
+        </>
     )
 }
 

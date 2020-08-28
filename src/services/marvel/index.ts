@@ -1,25 +1,17 @@
-import axios from 'axios';
-import md5 from 'md5';
-import { API_URL, PRIVATE_KEY, PUBLIC_KEY } from '../../configs/env';
+import api from "..";
+import { MarvelResponse, Comic } from "../../common/types/marvel";
+import { AxiosResponse } from "axios";
 
-export const api = axios.create({
-    baseURL: API_URL,
-    headers: { 'Content-Type': 'application/json' }
-});
-
-api.interceptors.request.use(request => {
+export const getComics = async (): Promise<Comic[]> => {
     try {
-        const ts = new Date().getTime().toString();
-        const private_key = PRIVATE_KEY || '';
-        const public_key = PUBLIC_KEY || '';
-        const hash = md5(ts + private_key + public_key);
+        const response: AxiosResponse<MarvelResponse> = await api.get('/comics');
+        const data = response.data.data;
+        const results = data?.results;
 
-        request.url = `${request.url}?ts=${ts}&apikey=${public_key}&hash=${hash}`;
+        return results || [];
 
-        return request;
     } catch (error) {
-        return Promise.reject(error);
+        Promise.reject(error);
+        return error;
     }
-});
-
-export default api;
+};

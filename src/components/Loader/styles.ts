@@ -15,4 +15,4 @@ export const Spin = styled(FaCog)`
     font-size: 2rem;
     color: #FFF;
     animation: ${rotate} 2s linear infinite;
-`
+`;
