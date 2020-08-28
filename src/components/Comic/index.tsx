@@ -1,12 +1,19 @@
 import React from 'react';
-import FullScreen from '../FullScreen';
+import { Card } from './styles';
+import { Comic as ComicType } from '../../common/types/marvel';
 
-export const Comic: React.FC = () => {
+interface Props {
+    comic: ComicType;
+}
+
+export const Comic: React.FC<Props> = (props: Props) => {
+    const { comic } = props;
+    
     return (
-        <FullScreen>
-            <>testando</>
-        </FullScreen>
+        <Card>
+            {comic.title}
+        </Card>
     );
 }
 
-export default Loader;
+export default Comic;

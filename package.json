@@ -13,9 +13,11 @@
         "@types/react": "^16.9.48",
         "@types/react-dom": "^16.9.0",
         "@types/react-redux": "^7.1.9",
+        "@types/redux-mock-store": "^1.0.2",
         "@types/redux-saga": "^0.10.5",
         "@types/styled-components": "^5.1.2",
         "axios": "^0.20.0",
+        "eslint-plugin-import": "^2.22.0",
         "md5": "^2.3.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
@@ -24,6 +26,7 @@
         "react-router-dom": "^5.2.0",
         "react-scripts": "3.4.3",
         "redux": "^4.0.5",
+        "redux-mock-store": "^1.5.4",
         "styled-components": "^5.1.1",
         "typesafe-actions": "^5.1.0",
         "typescript": "~3.7.2"
@@ -31,7 +34,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test",
+        "test": "react-scripts test --coverage",
         "eject": "react-scripts eject",
         "lint": "eslint --quiet --fix --ext .tsx,.js ."
     },
@@ -51,9 +54,13 @@
         ]
     },
     "devDependencies": {
+        "@types/enzyme": "^3.10.5",
+        "@types/enzyme-adapter-react-16": "^1.0.6",
         "@types/react-router-dom": "^5.1.5",
         "@typescript-eslint/eslint-plugin": "^3.10.1",
         "@typescript-eslint/parser": "^3.10.1",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.3",
         "eslint": "6.6.0",
         "eslint-plugin-react": "^7.20.6"
     }
