@@ -1,3 +1,5 @@
+<a href="https://codeclimate.com/github/Onnion/marvel-catalog/maintainability"><img src="https://api.codeclimate.com/v1/badges/3e808891bb166803cf0e/maintainability" /></a>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
