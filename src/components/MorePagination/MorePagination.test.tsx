@@ -1,16 +1,15 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import { ComicDetail as ComicDetailComponent } from './';
+import { MorePagination as MorePaginationComponent } from '.';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-describe('<ComicDetail /> unit test', () => {
+describe('<MorePagination /> unit test', () => {
 
     it('should render without error', () => {
-        const ComicDetail = (props: any) => <ComicDetailComponent {...props} />
-        const component = shallow(<ComicDetail />);
+        const MorePagination = (props: any) => <MorePaginationComponent {...props} />
+        const component = shallow(<MorePagination />);
         expect(component).toMatchSnapshot();
     });
-
 });

@@ -10,13 +10,8 @@ export const MorePagination: React.FC = () => {
     const dispatch = useDispatch();
 
     function getMoreComics() {
-        console.log(offset);
         dispatch({ type: ComicsTypes.LOAD_MORE, payload: offset });
     }
-
-    useEffect(() => {
-
-    }, [loading_more]);
 
     return (
         <>

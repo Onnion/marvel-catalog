@@ -8,8 +8,6 @@ export function* load({ payload }) {
         const wrapper = async () => getComics(payload);
         const [comics, offset] = yield call(wrapper);
 
-        console.log(payload)
-
         if (!!payload) {
             yield put(sucessMore(comics));
         } else {
