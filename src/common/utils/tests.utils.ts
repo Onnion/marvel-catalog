@@ -8,7 +8,11 @@ import * as Redux from 'react-redux';
 export const initialState: ComicsState = {
     loading: false,
     error: false,
-    comics: []
+    loading_more: false,
+    error_more: false,
+    comics: [],
+    offset: 0
+
 }
 
 export const mockInitialState = () => {

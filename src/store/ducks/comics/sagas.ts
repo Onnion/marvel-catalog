@@ -1,20 +1,35 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 import { getComics } from '../../../services/marvel';
-import { sucess, error } from './actions';
+import { sucess, error, sucessMore, errorMore } from './actions';
 import { ComicsTypes } from './types';
 
-export function* load() {
+export function* load({ payload }) {
     try {
-        const comics = yield call(getComics);
+        const wrapper = async () => getComics(payload);
+        const [comics, offset] = yield call(wrapper);
 
-        yield put(sucess(comics));
+        console.log(payload)
+
+        if (!!payload) {
+            yield put(sucessMore(comics));
+        } else {
+            yield put(sucess(comics));
+        }
+
     } catch (err) {
-        yield put(error());
+        if (!!payload) {
+            yield put(errorMore());
+        } else {
+            yield put(error());
+        }
     }
 }
 
 const sagas = [
-    takeLatest(ComicsTypes.LOAD, load)
+    //@ts-ignore
+    takeLatest(ComicsTypes.LOAD, load),
+    //@ts-ignore
+    takeLatest(ComicsTypes.LOAD_MORE, load)
 ];
 
 export default sagas;

@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@material-ui/core": "^4.11.0",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
@@ -13,6 +14,7 @@
         "@types/react": "^16.9.48",
         "@types/react-dom": "^16.9.0",
         "@types/react-redux": "^7.1.9",
+        "@types/react-transition-group": "^4.4.0",
         "@types/redux-mock-store": "^1.0.2",
         "@types/redux-saga": "^0.10.5",
         "@types/styled-components": "^5.1.2",
@@ -25,6 +27,7 @@
         "react-redux": "^7.2.1",
         "react-router-dom": "^5.2.0",
         "react-scripts": "3.4.3",
+        "react-transition-group": "^4.4.1",
         "redux": "^4.0.5",
         "redux-mock-store": "^1.5.4",
         "styled-components": "^5.1.1",
