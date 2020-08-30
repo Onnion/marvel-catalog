@@ -1,6 +1,5 @@
 import { ComicsState, ComicsTypes } from "./types";
 import { Reducer } from "redux";
-import { Comic } from "../../../common/types/marvel";
 
 const INITIAL_STATE: ComicsState = {
     error: false,
@@ -21,7 +20,6 @@ const reducer: Reducer<ComicsState> = (state = INITIAL_STATE, action) => {
             return { ...state, loading: true };
 
         case ComicsTypes.SUCCESS:
-
             return {
                 ...state,
                 offset: setOffset(state, state.offset),
@@ -37,7 +35,6 @@ const reducer: Reducer<ComicsState> = (state = INITIAL_STATE, action) => {
             return { ...state, loading_more: true };
 
         case ComicsTypes.SUCCESS_MORE:
-
             return {
                 ...state,
                 offset: setOffset(state, state.offset),
@@ -46,9 +43,8 @@ const reducer: Reducer<ComicsState> = (state = INITIAL_STATE, action) => {
                 error_more: false
             };
 
-        case ComicsTypes.ERROR:
+        case ComicsTypes.ERROR_MORE:
             return { ...state, loading_more: false, comics: [...state.comics], error_more: true };
-
 
         case ComicsTypes.SET_CREATORS:
             const { id, creators } = action.payload;

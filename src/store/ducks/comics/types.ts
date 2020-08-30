@@ -9,6 +9,8 @@ export enum ComicsTypes {
     SUCCESS_MORE = '@comics/SUCCESS_MORE',
     ERROR_MORE = '@comics/ERROR_MORE',
     SEARCH = '@comics/SEARCH',
+    SUCCESS_SEARCH = '@comics/SUCCESS_SEARCH',
+    ERROR_SEARCH = '@comics/ERROR_SEARCH'
 }
 
 export interface ComicsState {

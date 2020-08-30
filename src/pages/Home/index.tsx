@@ -5,18 +5,22 @@ import ComicList from './../../components/ComicList';
 import { State } from '../../store';
 import Loader from '../../components/Loader';
 import MorePagination from '../../components/MorePagination';
+import CharactersList from '../../components/CharactersList';
+import { CharactersTypes } from '../../store/ducks/characters/types';
 
 export const Home: React.FC = () => {
     const { loading } = useSelector((state: State) => state.comics);
     const dispatch = useDispatch();
 
     useEffect(() => {
+        dispatch({ type: CharactersTypes.LOAD });
         dispatch({ type: ComicsTypes.LOAD });
     }, [dispatch]);
 
-    function renderList(): JSX.Element {
+    function renderLists(): JSX.Element {
         return (
             <div className="container-fluid py-3">
+                <CharactersList/>
                 <ComicList />
 
                 <div className="row">
@@ -24,7 +28,6 @@ export const Home: React.FC = () => {
                         <MorePagination />
                     </div>
                 </div>
-
             </div>
         )
     }
@@ -33,7 +36,7 @@ export const Home: React.FC = () => {
         <>
             {loading
                 ? <Loader />
-                : renderList()
+                : renderLists()
             }
         </>
     )

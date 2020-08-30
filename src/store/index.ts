@@ -3,9 +3,11 @@ import reducer from './reducer';
 import { ComicsState } from './ducks/comics/types';
 import createSagaMiddleWare from 'redux-saga';
 import rootSaga from './saga';
+import { CharactersState } from './ducks/characters/types';
 
 export interface State {
-    comics: ComicsState
+    comics: ComicsState,
+    characters: CharactersState,
 }
 
 const sagaMiddleWare = createSagaMiddleWare();

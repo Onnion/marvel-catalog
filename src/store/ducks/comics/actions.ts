@@ -15,3 +15,9 @@ export const loadMore = (offset: number) => action(ComicsTypes.LOAD_MORE, { offs
 export const sucessMore = (comics: Comic[]) => action(ComicsTypes.SUCCESS_MORE, { comics });
 
 export const errorMore = () => action(ComicsTypes.ERROR_MORE);
+
+export const search = (caracter: string) => action(ComicsTypes.SEARCH, { caracter });
+
+export const sucessSearch = (comics: Comic[]) => action(ComicsTypes.SUCCESS_SEARCH, { comics });
+
+export const errorSearch = () => action(ComicsTypes.ERROR_SEARCH);

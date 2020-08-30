@@ -54,7 +54,6 @@ export const Comic: React.FC<ComicProps> = (props: ComicProps) => {
                     <TransitionGroup component={TrasitionWrapper}>
                         <CSSTransition key={`${showDetail}`} timeout={500} classNames={'detail'}>
                             <>
-                                {/* <ComicDetail creators_length={CREATORS_LENGTH} comic={comic} creators={creators} /> */}
                                 {
                                     loading
                                         ? creators

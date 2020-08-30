@@ -6,7 +6,7 @@ import { ComicsTypes } from './types';
 export function* load({ payload }) {
     try {
         const wrapper = async () => getComics(payload);
-        const [comics, offset] = yield call(wrapper);
+        const [comics] = yield call(wrapper);
 
         if (!!payload) {
             yield put(sucessMore(comics));
@@ -22,6 +22,26 @@ export function* load({ payload }) {
         }
     }
 }
+
+// export function* search({ payload }) {
+//     try {
+//         const wrapper = async () => searchComics(payload);
+//         const [comics, offset] = yield call(wrapper);
+
+//         if (!!payload) {
+//             yield put(sucessMore(comics));
+//         } else {
+//             yield put(sucess(comics));
+//         }
+
+//     } catch (err) {
+//         if (!!payload) {
+//             yield put(errorMore());
+//         } else {
+//             yield put(error());
+//         }
+//     }
+// }
 
 const sagas = [
     //@ts-ignore

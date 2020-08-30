@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import * as qs from 'querystring';
 import { RAPIAPI_URL, RAPIAPI_KEY } from '../../configs/env';
-import { Interface } from 'readline';
 import { Translations } from '../../common/types/translate';
 
 export const api = axios.create({

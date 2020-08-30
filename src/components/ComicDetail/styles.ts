@@ -9,7 +9,7 @@ const generateChildScape = (children: number): string => {
 
 export const Detail = styled.div`
     position: absolute;
-    background: #FFF;
+    background: var(--title-color);
     height: 80%;
     width: 100%;
     left: 0;
@@ -37,7 +37,7 @@ export const CreatorsList = styled.div`
     ${(props: any) => generateChildScape(props.theme.creators_length)}
 `
 export const Title = styled.h1`
-    color: var(--title-color);
+    color: #FFF;
     font-size: .8rem;
 `
 
