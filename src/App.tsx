@@ -1,13 +1,12 @@
 import React from 'react';
 import Routes from './routes';
-import { Body, Header, HeaderWrapper } from './styles';
+import { Body } from './styles';
+import Header from './components/Header';
 
 export const App: React.FC = () => {
     return (
         <>
-            <HeaderWrapper className="d-flex align-items-center justify-content-center">
-                <Header className="container">a</Header>
-            </HeaderWrapper>
+            <Header />
             <Body className="d-flex">
                 < Routes />
             </Body>

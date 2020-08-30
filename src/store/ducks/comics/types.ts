@@ -8,6 +8,7 @@ export enum ComicsTypes {
     LOAD_MORE = '@comics/LOAD_MORE',
     SUCCESS_MORE = '@comics/SUCCESS_MORE',
     ERROR_MORE = '@comics/ERROR_MORE',
+    SEARCH = '@comics/SEARCH',
 }
 
 export interface ComicsState {
