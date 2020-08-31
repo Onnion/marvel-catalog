@@ -1,20 +1,10 @@
 import { ComicsState, ComicsTypes } from "./types";
 import { Reducer } from "redux";
-
-const INITIAL_STATE: ComicsState = {
-    error: false,
-    loading: false,
-    error_more: false,
-    loading_more: false,
-    comics: [],
-    offset: 0,
-    limit: 20,
-    total: 0
-};
+import { initialState } from "../../../common/utils/tests.utils";
 
 const setOffset = (state, offset) => offset + state.limit;
 
-const reducer: Reducer<ComicsState> = (state = INITIAL_STATE, action) => {
+const reducer: Reducer<ComicsState> = (state = initialState, action) => {
     switch (action.type) {
         case ComicsTypes.LOAD:
             return { ...state, loading: true };
@@ -22,7 +12,7 @@ const reducer: Reducer<ComicsState> = (state = INITIAL_STATE, action) => {
         case ComicsTypes.SUCCESS:
             return {
                 ...state,
-                offset: setOffset(state, state.offset),
+                offset: state.limit || 0,
                 loading: false,
                 comics: action.payload.comics,
                 error: false
@@ -32,19 +22,35 @@ const reducer: Reducer<ComicsState> = (state = INITIAL_STATE, action) => {
             return { ...state, loading: false, comics: [], error: true };
 
         case ComicsTypes.LOAD_MORE:
-            return { ...state, loading_more: true };
+            return { ...state, loading: true, loading_more: true };
 
         case ComicsTypes.SUCCESS_MORE:
             return {
                 ...state,
                 offset: setOffset(state, state.offset),
+                loading: false,
                 loading_more: false,
                 comics: [...state.comics, ...action.payload.comics],
                 error_more: false
             };
 
         case ComicsTypes.ERROR_MORE:
-            return { ...state, loading_more: false, comics: [...state.comics], error_more: true };
+            return { ...state, loading: false, loading_more: false, comics: [...state.comics], error_more: true };
+
+        case ComicsTypes.LOAD_SEARCH_BY_CHARACTER:
+            return { ...state, loading: true };
+
+        case ComicsTypes.SUCCESS_SEARCH_BY_CHARACTER:
+            return {
+                ...state,
+                offset: setOffset(state, state.offset),
+                loading: false,
+                comics: action.payload.comics,
+                error_search_by_character: false
+            };
+
+        case ComicsTypes.ERROR_SEARCH_BY_CHARACTER:
+            return { ...state, loading: false, comics: [...state.comics], error_search_by_character: true };
 
         case ComicsTypes.SET_CREATORS:
             const { id, creators } = action.payload;

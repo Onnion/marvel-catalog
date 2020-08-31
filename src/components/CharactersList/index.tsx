@@ -1,13 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { State } from '../../store';
 import OwlCarousel from 'react-owl-carousel2';
-import MorePagination from '../MorePagination';
 import Character from '../Character';
 import 'react-owl-carousel2/lib/styles.css';
+import { CharactersTypes } from '../../store/ducks/characters/types';
 
 export const CharactersList: React.FC = () => {
-    const { characters } = useSelector((state: State) => state.characters);
+    const { characters, loading } = useSelector((state: State) => state.characters);
+    const dispatch = useDispatch();
     const options = {
         items: 8,
         nav: false,
@@ -30,6 +31,10 @@ export const CharactersList: React.FC = () => {
         }
     };
 
+    useEffect(() => {
+        dispatch({ type: CharactersTypes.LOAD });
+    }, []);
+
     const events = {
         onDragged: (event) => { },
         onChanged: (event) => { },
@@ -37,15 +42,12 @@ export const CharactersList: React.FC = () => {
 
     return (
         <div className="container">
-            <div className="row" style={{transform: 'translateY(-3rem)'}}>
+            <div className="row" style={{ transform: 'translateY(-3rem)' }}>
                 <div className="col">
 
-                    <OwlCarousel options={options} events={events} >
+                    {!loading && <OwlCarousel options={options} events={events} >
                         {characters.map((character) => <div key={character.id}><Character character={character} /></div>)}
-                        <div>
-                            <MorePagination />
-                        </div>
-                    </OwlCarousel>
+                    </OwlCarousel>}
                 </div>
             </div>
         </div>

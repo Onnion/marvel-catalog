@@ -6,14 +6,16 @@ import { ComicsState } from '../../store/ducks/comics/types';
 import * as Redux from 'react-redux';
 
 export const initialState: ComicsState = {
-    loading: false,
     error: false,
-    loading_more: false,
+    loading: false,
     error_more: false,
+    loading_more: false,
     comics: [],
-    offset: 0
-
-}
+    offset: 0,
+    limit: 20,
+    loading_search_by_character: false,
+    error_search_by_character: false
+};
 
 export const mockInitialState = () => {
     const sagaMiddleware = createSagaMiddleware();

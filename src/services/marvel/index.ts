@@ -18,7 +18,7 @@ export const getCreators = async (id: number): Promise<any> => {
 export const getComics = async (offset: number): Promise<[Comic[], number]> => {
     try {
         const response: AxiosResponse<MarvelResponse> = await api
-            .get('/comics', { params: { offset, format: 'comic', orderBy: 'title' } });
+            .get('/comics', { params: { offset, format: 'comic', orderBy: 'title', noVariants: true } });
         const data = response.data.data;
         const offsetData = data.offset;
         const results = data.results;
@@ -34,13 +34,48 @@ export const getComics = async (offset: number): Promise<[Comic[], number]> => {
 export const getCharacters = async (offset: number): Promise<[any[], number]> => {
     try {
         const response: AxiosResponse<MarvelResponse> = await api
-            .get('/characters', { params: { offset } });
+            .get('/characters', { params: { offset, limit: 100 } });
         const { data: { data } } = response;
         const offsetData = data.offset;
         const results = data.results;
 
         return [results, offsetData];
 
+    } catch (error) {
+        Promise.reject(error);
+        return error;
+    }
+};
+
+export const searchCharacters = async (name: string): Promise<any> => {
+    try {
+        const nameSplited = name.split(' ');
+        const isFullName = nameSplited.length > 1;
+        const param = isFullName ? 'name' : 'nameStartsWith';
+        const nameSearch = isFullName ? nameSplited.join('-') : nameSplited[0];
+        const response: AxiosResponse<MarvelResponse> = await api
+            .get(`/characters`, { params: { limit: 100, [param]: nameSearch } });
+        const data = response.data.data;
+        const offsetData = data.offset;
+        const results = data.results;
+
+        return [results, offsetData];
+    } catch (error) {
+        Promise.reject(error);
+        return error;
+    }
+};
+
+export const getComicsByCharacter = async (id: number): Promise<any> => {
+    try {
+        if (id) {
+            const response: AxiosResponse<MarvelResponse> = await api.get(`characters/${id}/comics`);
+            const data = response.data.data;
+            const offsetData = data.offset;
+            const results = data.results;
+
+            return [results, offsetData];
+        }
     } catch (error) {
         Promise.reject(error);
         return error;

@@ -19,5 +19,7 @@ export interface CharactersState {
     readonly offset: number;
     readonly loading_more: boolean;
     readonly error_more: boolean;
+    readonly loading_search: boolean;
+    readonly error_search: boolean;
     readonly limit?: number;
 }

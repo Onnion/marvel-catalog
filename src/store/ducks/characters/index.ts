@@ -8,6 +8,8 @@ const INITIAL_STATE: CharactersState = {
     loading_more: false,
     characters: [],
     character: null,
+    error_search: false,
+    loading_search: false,
     offset: 0,
     limit: 20
 };
@@ -48,6 +50,21 @@ const reducer: Reducer<CharactersState> = (state = INITIAL_STATE, action) => {
 
         case CharactersTypes.SET:
             return { ...state, character: action.payload };
+
+        case CharactersTypes.SEARCH:
+            return { ...state, loading_search: true };
+
+        case CharactersTypes.SUCCESS_SEARCH:
+            return {
+                ...state,
+                loading_search: false,
+                characters: action.payload.characters,
+                error_search: false
+            };
+
+        case CharactersTypes.ERROR_SEARCH:
+            return { ...state, loading_search: false, characters: [], error_search: true };
+
 
         default:
             return state;

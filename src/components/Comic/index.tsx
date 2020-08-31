@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { CreatorsTypes } from '../../store/ducks/creators/types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Loader from '../Loader';
+import { Link } from 'react-router-dom';
 
 export interface ComicProps {
     comic: ComicType;
@@ -45,28 +46,32 @@ export const Comic: React.FC<ComicProps> = (props: ComicProps) => {
     }, [showDetail]);
 
     return (
-        <div
-            onMouseEnter={() => setShowDetail(true)}
-            onMouseLeave={() => setShowDetail(false)}
-        >
-            <ThemeProvider theme={{ background: comic.thumbnail }}>
-                <Card>
-                    <TransitionGroup component={TrasitionWrapper}>
-                        <CSSTransition key={`${showDetail}`} timeout={500} classNames={'detail'}>
-                            <>
-                                {
-                                    loading
-                                        ? creators
-                                            ? <ComicDetail creators_length={CREATORS_LENGTH} comic={comic} creators={creators} />
-                                            : < Loader />
-                                        : null
-                                }
-                            </>
-                        </CSSTransition>
-                    </TransitionGroup>
-                </Card>
-            </ThemeProvider>
-        </div>
+        <Link to={{
+            pathname: "/detail",
+        }}>
+            <div
+                onMouseEnter={() => setShowDetail(true)}
+                onMouseLeave={() => setShowDetail(false)}
+            >
+                <ThemeProvider theme={{ background: comic.thumbnail }}>
+                    <Card>
+                        <TransitionGroup component={TrasitionWrapper}>
+                            <CSSTransition key={`${showDetail}`} timeout={500} classNames={'detail'}>
+                                <>
+                                    {
+                                        loading
+                                            ? creators
+                                                ? <ComicDetail creators_length={CREATORS_LENGTH} comic={comic} creators={creators} />
+                                                : < Loader />
+                                            : null
+                                    }
+                                </>
+                            </CSSTransition>
+                        </TransitionGroup>
+                    </Card>
+                </ThemeProvider>
+            </div>
+        </Link>
     );
 }
 

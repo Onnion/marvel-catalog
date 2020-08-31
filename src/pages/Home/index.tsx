@@ -1,26 +1,19 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { ComicsTypes } from '../../store/ducks/comics/types';
+import React from 'react';
 import ComicList from './../../components/ComicList';
-import { State } from '../../store';
-import Loader from '../../components/Loader';
 import MorePagination from '../../components/MorePagination';
 import CharactersList from '../../components/CharactersList';
-import { CharactersTypes } from '../../store/ducks/characters/types';
+import Header from '../../components/Header';
 
 export const Home: React.FC = () => {
-    const { loading } = useSelector((state: State) => state.comics);
-    const dispatch = useDispatch();
+    return (
+        <>
+            <Header />
 
-    useEffect(() => {
-        dispatch({ type: CharactersTypes.LOAD });
-        dispatch({ type: ComicsTypes.LOAD });
-    }, [dispatch]);
-
-    function renderLists(): JSX.Element {
-        return (
             <div className="container-fluid py-3">
-                <CharactersList/>
+                <CharactersList />
+            </div>
+
+            <div className="container-fluid py-3">
                 <ComicList />
 
                 <div className="row">
@@ -29,15 +22,6 @@ export const Home: React.FC = () => {
                     </div>
                 </div>
             </div>
-        )
-    }
-
-    return (
-        <>
-            {loading
-                ? <Loader />
-                : renderLists()
-            }
         </>
     )
 }

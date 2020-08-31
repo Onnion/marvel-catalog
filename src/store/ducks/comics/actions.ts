@@ -21,3 +21,9 @@ export const search = (caracter: string) => action(ComicsTypes.SEARCH, { caracte
 export const sucessSearch = (comics: Comic[]) => action(ComicsTypes.SUCCESS_SEARCH, { comics });
 
 export const errorSearch = () => action(ComicsTypes.ERROR_SEARCH);
+
+export const loadByCharacter = (id: number) => action(ComicsTypes.LOAD_SEARCH_BY_CHARACTER, { id });
+
+export const sucessByCharacter = (comics: Comic[]) => action(ComicsTypes.SUCCESS_SEARCH_BY_CHARACTER, { comics });
+
+export const errorByCharacter = () => action(ComicsTypes.ERROR_SEARCH_BY_CHARACTER);
