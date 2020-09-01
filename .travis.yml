@@ -4,7 +4,7 @@ node_js:
 branches:
   only:
     - master
-    -setup-travis
+    - setup-travis
 cache:
   directories:
     - node_modules
