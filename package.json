@@ -41,13 +41,13 @@
         "build": "react-scripts build",
         "test": "react-scripts test --coverage",
         "eject": "react-scripts eject",
-        "lint": "eslint --quiet --fix --ext .js,.jsx,.ts,.tsx ."
+        "lint": "eslint --quiet --fix --ext .tsx ."
     },
     "eslintConfig": {
         "extends": "react-app"
     },
     "jest": {
-        "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}"],
+        "collectCoverageFrom": ["src/**/*.{tsx}"],
         "coverageReporters": [
             "lcov"
         ]
