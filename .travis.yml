@@ -5,13 +5,12 @@ cache:
   directories:
     - node_modules
 install:
-- npm install -q --no-color --no-progress
+  - npm install -q --no-color --no-progress
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
-  - ls
-  - cp -f env.exemple.ts src/config/env.ts
+  - bash env.sh
 script:
   - npm run test -- --updateSnapshot --no-watch --watchAll=false
 after_script:

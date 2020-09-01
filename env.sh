@@ -1,0 +1,1 @@
+cp -f env.exemple.ts src/config/env.ts
