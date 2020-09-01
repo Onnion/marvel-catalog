@@ -7,7 +7,6 @@ import { mockInitialState, mockSelectors } from '../../common/utils/tests.utils'
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-
 describe('<Home />', () => {
 
   it('should render without error', () => {
@@ -20,17 +19,24 @@ describe('<Home />', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should show <Loader /> while load comics', () => {
-    mockSelectors({ loading: true });
+  it('should render <Header/> child', () => {
     const component = shallow(<Home />);
-
-    expect(component.find('Loader').exists()).toBe(true);
+    expect(component.find('Header').exists()).toBe(true);
   });
 
-  it('should show <ComicList /> then load comics', () => {
-    mockSelectors({ loading: false });
+  it('should render <CharactersList/> child', () => {
     const component = shallow(<Home />);
+    expect(component.find('CharactersList').exists()).toBe(true);
+  });
 
+  it('should render <ComicList/> child', () => {
+    const component = shallow(<Home />);
     expect(component.find('ComicList').exists()).toBe(true);
+  });
+
+
+  it('should render <MorePagination/> child', () => {
+    const component = shallow(<Home />);
+    expect(component.find('MorePagination').exists()).toBe(true);
   });
 });

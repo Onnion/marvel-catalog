@@ -19,19 +19,18 @@ describe('<ComicList /> unit test', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('should show <Comic /> while load comics', () => {
-        mockSelectors({ comics: [] });
-        const component = shallow(<ComicList />);
+    // it('should show <Comic /> while load comics', () => {
+    //     mockSelectors({ comics: [] });
+    //     const component = shallow(<ComicList />);
 
-        expect(component.find('Comic').exists()).toBe(false);
-    });
+    //     expect(component.find('Comic').exists()).toBe(false);
+    // });
 
-    it('should show <Comic /> while load comics', () => {
-        mockSelectors({ comics: [{ title: 'teste' }] });
-        const component = shallow(<ComicList />);
+    // it('should show <Comic /> while load comics', () => {
+    //     mockSelectors({ comics: [{ title: 'teste' }] });
+    //     const component = shallow(<ComicList />);
 
-        expect(component.find('Comic').exists()).toBe(true);
-    });
-
+    //     expect(component.find('Comic').exists()).toBe(true);
+    // });
 
 });
