@@ -9,7 +9,6 @@ import ComicCreator from '../../components/ComicCreator';
 
 export const Intern: React.FC = () => {
     const { comic } = useSelector((state: State) => state.comics);
-    const { character } = useSelector((state: State) => state.characters);
 
     function decodeHtml(html?: string): { __html: string } {
         return { __html: html || '' };
