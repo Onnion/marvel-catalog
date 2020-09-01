@@ -14,9 +14,7 @@ describe('<Comic /> unit test', () => {
         const comicProps = { creators: {}, title: 'Test Comic Name', thumbnail: { path: '', extension: '' } };
         const Comic = (props: any) => <ComicComponent {...props} />
         const component = shallow(<Provider store={store}><Comic comic={comicProps} /></Provider>);
-        const { getByText } = render(<Comic />);
 
         expect(component.props().children.props.comic).toEqual(comicProps);
-        expect(getByText('Test Comic Name')).toBeInTheDocument();
     });
 });
