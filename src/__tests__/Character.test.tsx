@@ -2,18 +2,18 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
-import { InternVariants } from '.';
-import { mockInitialState } from '../../common/utils/tests.utils';
+import { Character } from '../components/Character';
+import { mockSelectors, mockInitialState } from '../common/utils/tests.utils';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-describe('<InternVariants /> unit test', () => {
+describe('<Character /> unit test', () => {
 
     it('should render without error', () => {
         const store = mockInitialState();
         const component = shallow(
             <Provider store={store}>
-                <InternVariants />
+                <Character />
             </Provider>,
         );
         expect(component).toMatchSnapshot();

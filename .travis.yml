@@ -5,12 +5,13 @@ cache:
   directories:
     - node_modules
 install:
-- npm install -q --no-color --no-progress
+  - npm install -q --no-color --no-progress
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
+  - bash env.sh
 script:
-  - npm run test -- --no-watch --watchAll=false
+  - npm run test -- --updateSnapshot --no-watch --watchAll=false
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
