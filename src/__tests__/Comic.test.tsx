@@ -1,9 +1,9 @@
 import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import { Comic as ComicComponent } from '.';
+import { Comic as ComicComponent } from '../components/Comic';
 import { Provider } from 'react-redux';
-import { mockInitialState } from '../../common/utils/tests.utils';
+import { mockInitialState } from '../common/utils/tests.utils';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 

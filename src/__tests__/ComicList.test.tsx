@@ -2,8 +2,8 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
-import ComicList from '.';
-import { mockSelectors, mockInitialState } from '../../common/utils/tests.utils';
+import ComicList from '../components/ComicList';
+import { mockSelectors, mockInitialState } from '../common/utils/tests.utils';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
