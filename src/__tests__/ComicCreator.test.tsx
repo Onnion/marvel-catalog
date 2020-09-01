@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
-import { ComicCreator as ComicCreatorComponent } from '.';
+import { ComicCreator as ComicCreatorComponent } from '../components/ComicCreator';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 

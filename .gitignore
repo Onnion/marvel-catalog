@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-__**__/
+__snapshots__/
 
 #configs
 configs/
