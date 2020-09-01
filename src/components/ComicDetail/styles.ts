@@ -1,11 +1,5 @@
 import styled from 'styled-components';
-
-const generateChildScape = (children: number): string => {
-    const defaultChild = (index) => ` & > div:nth-child(${index + 2}) { transform: translateX(-${index + 1}rem); }`;
-    const childrenArry = [...Array(children).keys()];
-
-    return `${childrenArry.reduce((str, child) => str + defaultChild(child), '')}`;
-}
+import { generateChildScape } from '../../common/utils/creators';
 
 export const Detail = styled.div`
     position: absolute;
@@ -35,11 +29,12 @@ export const CreatorsList = styled.div`
     } 
 
     ${(props: any) => generateChildScape(props.theme.creators_length)}
-`
+`;
+
 export const Title = styled.h1`
     color: #FFF;
     font-size: .8rem;
-`
+`;
 
 CreatorsList.defaultProps = {
     theme: {

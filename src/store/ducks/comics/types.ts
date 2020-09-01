@@ -5,12 +5,14 @@ export enum ComicsTypes {
     SUCCESS = '@comics/SUCCESS',
     ERROR = '@comics/ERROR',
     SET_CREATORS = '@comics/SET_CREATORS',
+    SET_VARIANTS = '@comics/SET_VARIANTS',
     LOAD_MORE = '@comics/LOAD_MORE',
     SUCCESS_MORE = '@comics/SUCCESS_MORE',
     ERROR_MORE = '@comics/ERROR_MORE',
     SEARCH = '@comics/SEARCH',
     SUCCESS_SEARCH = '@comics/SUCCESS_SEARCH',
     ERROR_SEARCH = '@comics/ERROR_SEARCH',
+    SET = '@comics/SET',
     LOAD_SEARCH_BY_CHARACTER = '@comics/LOAD_SEARCH_BY_CHARACTER',
     SUCCESS_SEARCH_BY_CHARACTER = '@comics/SUCCESS_SEARCH_BY_CHARACTER',
     ERROR_SEARCH_BY_CHARACTER = '@comics/ERROR_SEARCH_BY_CHARACTER',
@@ -18,6 +20,7 @@ export enum ComicsTypes {
 
 export interface ComicsState {
     readonly comics: Comic[];
+    readonly comic?: Comic;
     readonly loading: boolean;
     readonly error: boolean;
     readonly offset: number;

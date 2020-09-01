@@ -185,6 +185,7 @@ export interface Comic {
     urls: Url[];
     series: SeriesSummary;
     variants: ComicSummary[];
+    variantsData: Image[];
     collections: ComicSummary[];
     collectedIssues: ComicSummary[];
     dates: ComicDate[];

@@ -8,23 +8,24 @@ export const CreatorTooltip = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-image: ${(props: any) => {
-            const { background } = props.theme;
+        const { background } = props.theme;
 
-            return `url(${background.path}.${background.extension})`;
-        }};
+        return `url(${background.path}.${background.extension})`;
+    }};
 `;
 
 export const Creator = styled.div`
     display: flex;
     border: 2px solid #FFF;
     border-radius: 50%;
-    height: 2rem;
-    width: 2rem;
+    min-height: ${(props: any) => props.theme.big ? 3 : 2}rem;
+    min-width: ${(props: any) => props.theme.big ? 3 : 2}rem;
     background-image: ${(props: any) => {
         const { background } = props.theme;
 
         return `url(${background.path}.${background.extension})`;
     }};
+    ${(props: any) => props.theme.big && 'margin-right: 8px; margin-bottom: 8px;'}
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -33,6 +34,7 @@ export const Creator = styled.div`
 
 Creator.defaultProps = {
     theme: {
-        background: ''
+        background: '',
+        big: false
     }
 };

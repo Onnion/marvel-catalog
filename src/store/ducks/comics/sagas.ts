@@ -1,6 +1,6 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 import { getComics, getComicsByCharacter } from '../../../services/marvel';
-import { sucess, error, sucessMore, errorMore, sucessByCharacter, errorByCharacter } from './actions';
+import { sucess, error, sucessMore, errorMore, sucessByCharacter, errorByCharacter, set } from './actions';
 import { ComicsTypes } from './types';
 
 export function* load({ payload }) {
@@ -26,7 +26,7 @@ export function* load({ payload }) {
 export function* loadByCharacter({ payload }) {
     try {
         const wrapper = async () => getComicsByCharacter(payload);
-        const [comics, offset] = yield call(wrapper);
+        const [comics] = yield call(wrapper);
 
         if (!!payload) {
             yield put(sucessByCharacter(comics));
@@ -36,13 +36,19 @@ export function* loadByCharacter({ payload }) {
     }
 }
 
+export function* setComic({ payload }) {
+    put(set(payload));
+}
+
 const sagas = [
     //@ts-ignore
     takeLatest(ComicsTypes.LOAD, load),
     //@ts-ignore
     takeLatest(ComicsTypes.LOAD_MORE, load),
     //@ts-ignore
-    takeLatest(ComicsTypes.LOAD_SEARCH_BY_CHARACTER, loadByCharacter)
+    takeLatest(ComicsTypes.LOAD_SEARCH_BY_CHARACTER, loadByCharacter),
+    //@ts-ignore
+    takeLatest(ComicsTypes.SET, setComic),
 ];
 
 export default sagas;

@@ -7,13 +7,14 @@ import Zoom from '@material-ui/core/Zoom';
 
 export interface ComicProps {
     creator: CreatorType;
+    big?: boolean
 }
 
 export const ComicCreator: React.FC<ComicProps> = (props: ComicProps) => {
-    const { creator } = props;
+    const { creator, big } = props;
 
     return (
-        <ThemeProvider theme={{ background: creator.thumbnail }}>
+        <ThemeProvider theme={{ background: creator.thumbnail, big }}>
             <Tooltip
                 disableFocusListener
                 disableTouchListener

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Nav } from './styles';
+import { Nav, Back, BackText, BackWrapper } from './styles';
+import { Link } from 'react-router-dom';
 
 
 export const InternNav: React.FC = () => {
@@ -9,7 +10,14 @@ export const InternNav: React.FC = () => {
             <div className="container">
                 <div className="row">
                     <div className="col">
-
+                        <Link to={{
+                            pathname: "/",
+                        }}>
+                            <BackWrapper>
+                                <Back />
+                                <BackText>voltar</BackText>
+                            </BackWrapper>
+                        </Link>
                     </div>
                 </div>
             </div>

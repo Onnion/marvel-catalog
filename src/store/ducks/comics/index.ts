@@ -1,6 +1,7 @@
 import { ComicsState, ComicsTypes } from "./types";
 import { Reducer } from "redux";
 import { initialState } from "../../../common/utils/tests.utils";
+import { Image } from "../../../common/types/marvel";
 
 const setOffset = (state, offset) => offset + state.limit;
 
@@ -62,6 +63,30 @@ const reducer: Reducer<ComicsState> = (state = initialState, action) => {
                 return comic;
             });
             return { ...state, loading: false, comics: newComics, error: true };
+
+
+        case ComicsTypes.SET_VARIANTS:
+            const { id: idComic, variants } = <{ id: number, variants: Image[] }>action.payload;
+            const newComicsVariants = state.comics.map(comic => {
+                if (comic.id === idComic) {
+                    comic.variantsData = [comic.thumbnail, ...variants,];
+                }
+
+                return comic;
+            });
+
+            const newComicVariant = newComicsVariants.find(comic => comic.id === idComic);
+
+            return {
+                ...state,
+                loading: false,
+                comic: { ...newComicVariant },
+                comics: newComicsVariants,
+                error: true
+            };
+
+        case ComicsTypes.SET:
+            return { ...state, comic: action.payload };
 
         default:
             return state;

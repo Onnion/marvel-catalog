@@ -1,6 +1,5 @@
-import { CreatorsTypes } from "./types";
 import { Reducer } from "redux";
-import { CreatorsState } from "./types";
+import { CreatorsState, CreatorsTypes } from "./types";
 
 const INITIAL_STATE: CreatorsState = {
     error: false,

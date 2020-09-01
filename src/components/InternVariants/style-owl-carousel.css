@@ -1,0 +1,10 @@
+.owl-nav .nav-btn {
+    color: #FFF;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* margin: auto; */
+    display: flex;
+    align-items: center;
+}

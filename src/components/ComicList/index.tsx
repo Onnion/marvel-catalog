@@ -14,7 +14,6 @@ export const ComicList: React.FC = () => {
 
     useEffect(() => {
         setInit(!init);
-        dispatch({ type: ComicsTypes.LOAD });
     }, []);
 
     useEffect(() => {
@@ -38,7 +37,7 @@ export const ComicList: React.FC = () => {
                     ))}
                 </Grid>
                 {
-                    (init && (!loading) && (comics.length <= 0)) && <h1 style={{ textAlign: 'center' }}>NENHUM QUADRINHO ENCONTRADO</h1>
+                    (init && (!loading) && (comics.length <= 0)) && <h1 style={{ textAlign: 'center' }}>Not to show :c</h1>
                 }
 
             </div>

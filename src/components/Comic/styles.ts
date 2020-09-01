@@ -16,7 +16,6 @@ export const Card = styled.div`
     justify-content: center;
     position: relative;
     overflow: hidden;
-    border-radius: 4px;
     padding-top: 150%;
     width: 100%;
     background-size: cover;

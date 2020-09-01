@@ -1,17 +1,16 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { State } from '../../store';
 import OwlCarousel from 'react-owl-carousel2';
 import Character from '../Character';
 import 'react-owl-carousel2/lib/styles.css';
-import { CharactersTypes } from '../../store/ducks/characters/types';
 
 export const CharactersList: React.FC = () => {
     const { characters, loading } = useSelector((state: State) => state.characters);
-    const dispatch = useDispatch();
     const options = {
         items: 8,
         nav: false,
+        dot: false,
         rewind: false,
         autoplay: true,
         margin: 20,
@@ -30,11 +29,6 @@ export const CharactersList: React.FC = () => {
             },
         }
     };
-
-    useEffect(() => {
-        dispatch({ type: CharactersTypes.LOAD });
-    }, []);
-
     const events = {
         onDragged: (event) => { },
         onChanged: (event) => { },

@@ -1,5 +1,5 @@
 import api from "..";
-import { MarvelResponse, Comic } from "../../common/types/marvel";
+import { MarvelResponse, Comic, ComicSummary, Image } from "../../common/types/marvel";
 import { AxiosResponse } from "axios";
 
 export const getCreators = async (id: number): Promise<any> => {
@@ -76,6 +76,19 @@ export const getComicsByCharacter = async (id: number): Promise<any> => {
 
             return [results, offsetData];
         }
+    } catch (error) {
+        Promise.reject(error);
+        return error;
+    }
+};
+
+export const getVariants = async (variants: ComicSummary[]): Promise<Image[]> => {
+    try {
+        const geters = variants.map(variant => api.get(variant.resourceURI));
+        const response: AxiosResponse<MarvelResponse>[] = await Promise.all(geters);
+        const data = response.map(variantResponse => variantResponse.data.data.results[0].thumbnail);
+
+        return data;
     } catch (error) {
         Promise.reject(error);
         return error;

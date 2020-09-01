@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Card, TrasitionWrapper } from './styles';
 import { Comic as ComicType } from '../../common/types/marvel';
 import { ThemeProvider } from 'styled-components';
-import ComicDetail from '../ComicDetail';
 import { useDispatch } from 'react-redux';
 import { CreatorsTypes } from '../../store/ducks/creators/types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { useHistory } from "react-router-dom";
+import { ComicsTypes } from '../../store/ducks/comics/types';
+import ComicDetail from '../ComicDetail';
 import Loader from '../Loader';
-import { Link } from 'react-router-dom';
+import { VariantsTypes } from '../../store/ducks/variants/types';
 
 export interface ComicProps {
     comic: ComicType;
@@ -21,11 +23,18 @@ export const Comic: React.FC<ComicProps> = (props: ComicProps) => {
     const CREATORS_LENGTH = 3;
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     function getCreators() {
         if (!comic.creators.data) {
             dispatch({ type: CreatorsTypes.LOAD, payload: comic.id });
         }
+    }
+
+    function handleClick() {
+        dispatch({ type: ComicsTypes.SET, payload: comic });
+        dispatch({ type: VariantsTypes.LOAD, payload: comic });
+        history.push("/detail");
     }
 
     useEffect(() => {
@@ -46,10 +55,9 @@ export const Comic: React.FC<ComicProps> = (props: ComicProps) => {
     }, [showDetail]);
 
     return (
-        <Link to={{
-            pathname: "/detail",
-        }}>
+
             <div
+                onClick={handleClick}
                 onMouseEnter={() => setShowDetail(true)}
                 onMouseLeave={() => setShowDetail(false)}
             >
@@ -71,7 +79,6 @@ export const Comic: React.FC<ComicProps> = (props: ComicProps) => {
                     </Card>
                 </ThemeProvider>
             </div>
-        </Link>
     );
 }
 

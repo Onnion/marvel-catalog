@@ -11,6 +11,7 @@ export const initialState: ComicsState = {
     error_more: false,
     loading_more: false,
     comics: [],
+    comic: undefined,
     offset: 0,
     limit: 20,
     loading_search_by_character: false,
