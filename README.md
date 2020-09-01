@@ -1,4 +1,6 @@
-<a href="https://codeclimate.com/github/Onnion/marvel-catalog/maintainability"><img src="https://api.codeclimate.com/v1/badges/3e808891bb166803cf0e/maintainability" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/3e808891bb166803cf0e/maintainability)](https://codeclimate.com/github/Onnion/marvel-catalog/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/3e808891bb166803cf0e/test_coverage)](https://codeclimate.com/github/Onnion/marvel-catalog/test_coverage)
+[![Build Status](https://travis-ci.com/Onnion/marvel-catalog.svg?branch=master)](https://travis-ci.com/Onnion/marvel-catalog)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
