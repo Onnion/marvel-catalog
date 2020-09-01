@@ -1,1 +1,1 @@
-cp -f env.exemple.ts src/config/env.ts
+cp -f  /home/travis/build/Onnion/marvel-catalog/env.exemple.ts  /home/travis/build/Onnion/marvel-catalog/src/config/env.ts
