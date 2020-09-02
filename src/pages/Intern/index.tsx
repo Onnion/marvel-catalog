@@ -12,8 +12,8 @@ export const Intern: React.FC = () => {
 
     function decodeHtml(html?: string): { __html: string } {
         return { __html: html || '' };
-
     }
+
     return (
         <>
             <ThemeProvider theme={{ background: comic?.thumbnail }}>
@@ -39,9 +39,9 @@ export const Intern: React.FC = () => {
                                 <div className="row my-5">
                                     <div className="col">
                                         <Field>Creators</Field>
-                                        <CreatorsList>
+                                        <CreatorsList data-testid="creatorsList">
                                             {
-                                                comic?.creators.data?.map((creator, index) => <ComicCreator big={true} key={index} creator={creator} />)
+                                                comic?.creators.data?.map((creator, index) => <ComicCreator data-testid="creatorList__creator" big={true} key={index} creator={creator} />)
                                             }
                                         </CreatorsList>
                                     </div>
