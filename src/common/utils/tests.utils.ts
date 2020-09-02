@@ -38,6 +38,12 @@ export const mockUseEffect = () => {
         .mockImplementationOnce(efect => efect());
 };
 
+export const mockUseDispatch = (fn) => {
+    jest
+        .spyOn(Redux, 'useDispatch')
+        .mockImplementation(() => fn);
+}
+
 export const mockSelectors = (storeValues: any) => {
     const mockStore = configureMockStore()({
         comics: {
@@ -50,7 +56,11 @@ export const mockSelectors = (storeValues: any) => {
         .spyOn(Redux, 'useSelector')
         .mockImplementation((state: any) => state(mockStore.getState()));
 
-    jest
-        .spyOn(Redux, 'useDispatch')
-        .mockImplementation(() => mockStore.dispatch);
+    mockUseDispatch(mockStore.dispatch);
+
+    // jest
+    //     .spyOn(Redux, 'useDispatch')
+    //     .mockImplementation(() => mockStore.dispatch);
+
+    return mockStore;
 };
