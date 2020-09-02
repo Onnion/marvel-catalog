@@ -5,7 +5,10 @@ import { Card, CardHeader, CardBody, Title } from './styles';
 import { ThemeProvider } from 'styled-components';
 import { State } from '../../store';
 
-export const Character: React.FC<any> = (props: any) => {
+export interface CharacterProps {
+    character: any;
+}
+export const Character: React.FC<CharacterProps> = (props: CharacterProps) => {
     const { character: characterState } = useSelector((state: State) => state.characters);
     const { character } = props;
 
