@@ -18,6 +18,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - styled-components
 - axios
 
+## External APIs
+
+- [Marvel](https://developer.marvel.com)
+- [Google Translate](https://rapidapi.com/googlecloud/api/google-translate1)
+
+  The `Google Translate` api changed the way to obtain a key, so the project now no longer has the option to search for characters in `pt-BR`, only `en`.
 
 ## Installation & Environments
 
