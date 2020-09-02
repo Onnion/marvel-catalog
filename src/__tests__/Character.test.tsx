@@ -53,4 +53,17 @@ describe('<Character /> unit test', () => {
         divWrapper.simulate("click");
         expect(mockDispatch).toHaveBeenCalledWith({ type: CharactersTypes.SET, payload: characterProps });
     });
+
+    // it('should render without error', () => {
+    //     const store = mockInitialState();
+    //     const component = shallow(
+    //         <Provider store={store}>
+    //             <Character character={characterProps} />
+    //         </Provider>,
+    //     );
+
+    //     const a = component.instance().activeClass
+
+    //     expect(component).toMatchSnapshot();
+    // });
 });

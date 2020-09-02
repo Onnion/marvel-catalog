@@ -26,7 +26,7 @@ describe('<Comic /> unit test', () => {
 
     beforeEach(() => {
         comicProps = { id: 1, creators: {}, title: 'Test Comic Name', thumbnail: { path: '', extension: '' } };
-    })
+    });
 
     it('should render without error', () => {
         const store = mockInitialState();
