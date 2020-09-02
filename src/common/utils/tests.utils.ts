@@ -18,13 +18,14 @@ export const initialState: ComicsState = {
     error_search_by_character: false
 };
 
-export const mockInitialState = () => {
+export const mockInitialState = (state = {}) => {
     const sagaMiddleware = createSagaMiddleware();
     const middleware = [sagaMiddleware];
     const store = configureMockStore(middleware)({
         comics: {
             ...initialState
         },
+        ...state
     });
 
     sagaMiddleware.run(rootSaga);
@@ -44,6 +45,13 @@ export const mockUseDispatch = (fn) => {
         .mockImplementation(() => fn);
 }
 
+export const mockUseSelector = (store: any) => {
+    jest
+        .spyOn(Redux, 'useSelector')
+        .mockImplementation((state: any) => store.getState());
+}
+
+
 export const mockSelectors = (storeValues: any) => {
     const mockStore = configureMockStore()({
         comics: {
@@ -52,15 +60,8 @@ export const mockSelectors = (storeValues: any) => {
         },
     });
 
-    jest
-        .spyOn(Redux, 'useSelector')
-        .mockImplementation((state: any) => state(mockStore.getState()));
-
+    mockUseSelector(mockStore);
     mockUseDispatch(mockStore.dispatch);
-
-    // jest
-    //     .spyOn(Redux, 'useDispatch')
-    //     .mockImplementation(() => mockStore.dispatch);
 
     return mockStore;
 };

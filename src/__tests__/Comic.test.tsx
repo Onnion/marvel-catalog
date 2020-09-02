@@ -22,9 +22,14 @@ jest
     }));
 
 describe('<Comic /> unit test', () => {
+    let comicProps;
+
+    beforeEach(() => {
+        comicProps = { id: 1, creators: {}, title: 'Test Comic Name', thumbnail: { path: '', extension: '' } };
+    })
+
     it('should render without error', () => {
         const store = mockInitialState();
-        const comicProps = { creators: {}, title: 'Test Comic Name', thumbnail: { path: '', extension: '' } };
         const Comic = (props: any) => <ComicComponent {...props} />
         const component = shallow(
             <Provider store={store}>
@@ -35,7 +40,6 @@ describe('<Comic /> unit test', () => {
     });
 
     it('should receive props', () => {
-        const comicProps = { creators: {}, title: 'Test Comic Name', thumbnail: { path: '', extension: '' } };
         const Comic = (props: any) => <ComicComponent {...props} />
         const component = shallow(<Comic comic={comicProps} />);
 
@@ -43,14 +47,12 @@ describe('<Comic /> unit test', () => {
     });
 
     it(`should dispatch ${CreatorsTypes.LOAD} when creators.data is empty`, () => {
-        const comicProps = { id: 1, creators: {}, title: 'Test Comic Name', thumbnail: { path: '', extension: '' } };
         const store = mockInitialState();
 
         const mockDispatch = jest.fn();
         mockUseDispatch(mockDispatch);
 
-        const Comic = (props: any) => <ComicComponent {...props} />
-        const component = mount(<Provider store={store}><Comic comic={comicProps} /></Provider>);
+        const component = mount(<Provider store={store}><ComicComponent comic={comicProps} /></Provider>);
         const divWrapper = component.find('div').first();
 
         divWrapper.simulate("mouseEnter");
@@ -58,14 +60,13 @@ describe('<Comic /> unit test', () => {
     });
 
     it(`should not dispatch ${CreatorsTypes.LOAD} when creators.data not empty`, () => {
-        const comicProps = { id: 1, creators: { data: [] }, title: 'Test Comic Name', thumbnail: { path: '', extension: '' } };
+        comicProps = { ...comicProps, creators: { data: [] } };
         const store = mockInitialState();
 
         const mockDispatch = jest.fn();
         mockUseDispatch(mockDispatch);
 
-        const Comic = (props: any) => <ComicComponent {...props} />
-        const component = mount(<Provider store={store}><Comic comic={comicProps} /></Provider>);
+        const component = mount(<Provider store={store}><ComicComponent comic={comicProps} /></Provider>);
         const divWrapper = component.find('div').first();
 
         divWrapper.simulate("mouseEnter");
@@ -73,14 +74,12 @@ describe('<Comic /> unit test', () => {
     });
 
     it(`should dispatch ${ComicsTypes.SET}, ${VariantsTypes.LOAD} and navigate on click`, () => {
-        const comicProps = { id: 1, creators: { data: [] }, title: 'Test Comic Name', thumbnail: { path: '', extension: '' } };
         const store = mockInitialState();
 
         const mockDispatch = jest.fn();
         mockUseDispatch(mockDispatch);
 
-        const Comic = (props: any) => <ComicComponent {...props} />
-        const component = mount(<Provider store={store}><Comic comic={comicProps} /></Provider>);
+        const component = mount(<Provider store={store}><ComicComponent comic={comicProps} /></Provider>);
         const divWrapper = component.find('div').first();
 
         divWrapper.simulate("click");
