@@ -9,7 +9,7 @@ import { ThemeProvider } from 'styled-components';
 import { CharactersTypes } from '../../store/ducks/characters/types';
 
 export const Header: React.FC = () => {
-    const { character, loading_search } = useSelector((state: State) => state.characters);
+    const { character, loading_search, loading } = useSelector((state: State) => state.characters);
     const [search, setSearch] = useState('');
     const dispatch = useDispatch();
 
@@ -24,11 +24,11 @@ export const Header: React.FC = () => {
     useEffect(() => {
         const handleType = setInterval(async () => {
             try {
-                const translated = !!search && await translate(search);
+                // const translated = !!search && await translate(search);
 
-                if (!!search && translated) {
-                    // dispatch({ type: (character ? ComicsTypes : CharactersTypes).SEARCH, payload: translated });
-                }
+                // if (!!search && translated) {
+                dispatch({ type: CharactersTypes[search ? 'SEARCH' : 'LOAD'], payload: search });
+                // }
 
             } catch (error) {
 
@@ -59,7 +59,7 @@ export const Header: React.FC = () => {
                             <div className="row" style={{ position: 'relative' }}>
 
                                 <div className="col">
-                                    {loading_search && <Loader />}
+                                    {(loading_search || loading) && <Loader />}
                                     {search && <Badge onClick={cleanerSearch}>{search}<RemoveSearch /></Badge>}
 
                                     <Search
