@@ -2,7 +2,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3e808891bb166803cf0e/test_coverage)](https://codeclimate.com/github/Onnion/marvel-catalog/test_coverage)
 [![Build Status](https://travis-ci.com/Onnion/marvel-catalog.svg?branch=master)](https://travis-ci.com/Onnion/marvel-catalog)
 
-<img style="width: 100%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/MarvelLogo.svg/800px-MarvelLogo.svg.png" />
+<img style="margin: 0 auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/MarvelLogo.svg/800px-MarvelLogo.svg.png" />
 
 # Marvel Calalog
 
