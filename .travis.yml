@@ -15,3 +15,12 @@ script:
   - npm run test -- --updateSnapshot --no-watch --watchAll=false
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+before_deploy: "bash deploy.sh"
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_KEY
+  app: marvel-catalog-dextra
+  on: 
+    branch: master

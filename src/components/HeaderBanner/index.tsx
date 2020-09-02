@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { State } from '../../store';
 import { CharactersTypes } from '../../store/ducks/characters/types';
 
-export const HeaderBanner: React.FC = () => {
+export interface HeaderBannerProps {
+    init: boolean;
+}
+
+export const HeaderBanner: React.FC<HeaderBannerProps> = (props: HeaderBannerProps) => {
     const { character } = useSelector((state: State) => state.characters);
     const dispatch = useDispatch();
 

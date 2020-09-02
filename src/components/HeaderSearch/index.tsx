@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CharactersTypes } from '../../store/ducks/characters/types';
 import { State } from '../../store';
 
-export const HeaderSearch: React.FC = () => {
+export interface HeaderBannerProps {
+    init: boolean;
+}
+
+export const HeaderSearch: React.FC<HeaderBannerProps> = (props: HeaderBannerProps) => {
     const { loading_search, loading } = useSelector((state: State) => state.characters);
     const [search, setSearch] = useState('');
     const dispatch = useDispatch();
@@ -15,13 +19,14 @@ export const HeaderSearch: React.FC = () => {
     }
 
     useEffect(() => {
+        console.log('aa');
         const handleType = setInterval(async () => {
             dispatch({ type: CharactersTypes[search ? 'SEARCH' : 'LOAD'], payload: search });
             clearInterval(handleType);
         }, 500);
 
         return () => clearInterval(handleType);
-    }, [search, dispatch]);
+    }, []);
 
     return (
         <>
