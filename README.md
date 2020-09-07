@@ -1,13 +1,14 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/3e808891bb166803cf0e/maintainability)](https://codeclimate.com/github/Onnion/marvel-catalog/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3e808891bb166803cf0e/test_coverage)](https://codeclimate.com/github/Onnion/marvel-catalog/test_coverage)
 [![Build Status](https://travis-ci.com/Onnion/marvel-catalog.svg?branch=master)](https://travis-ci.com/Onnion/marvel-catalog)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=marvel-catalog-dextra)](https://marvel-catalog-dextra.herokuapp.com/)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=marvel-catalog-dextra)](https://marvel-catalog-dextra.herokuapp.com/#)
 
 
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/MarvelLogo.svg/800px-MarvelLogo.svg.png" />
 
 # Marvel Calalog
+[Demo](https://marvel-catalog-dextra.herokuapp.com/#)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
