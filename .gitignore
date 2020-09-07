@@ -10,7 +10,7 @@
 __snapshots__/
 
 #configs
-configs/
+src/configs/
 
 # production
 /build
