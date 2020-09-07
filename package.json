@@ -42,7 +42,8 @@
         "build": "react-scripts build",
         "test": "react-scripts test --coverage",
         "eject": "react-scripts eject",
-        "lint": "eslint --quiet --fix --ext .tsx,.js ."
+        "lint": "eslint --quiet --fix --ext .tsx,.js .",
+        "heroku-prebuild": "heroku-configs.sh"
     },
     "eslintConfig": {
         "extends": "react-app"
