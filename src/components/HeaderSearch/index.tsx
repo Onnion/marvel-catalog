@@ -19,14 +19,13 @@ export const HeaderSearch: React.FC<HeaderBannerProps> = (props: HeaderBannerPro
     }
 
     useEffect(() => {
-        console.log('aa');
-        const handleType = setInterval(async () => {
+        const handleType = setInterval(() => {
             dispatch({ type: CharactersTypes[search ? 'SEARCH' : 'LOAD'], payload: search });
             clearInterval(handleType);
         }, 500);
 
         return () => clearInterval(handleType);
-    }, []);
+    }, [search]);
 
     return (
         <>
