@@ -1,7 +1,7 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/3e808891bb166803cf0e/maintainability)](https://codeclimate.com/github/Onnion/marvel-catalog/maintainability){:target="_blank"}
-[![Test Coverage](https://api.codeclimate.com/v1/badges/3e808891bb166803cf0e/test_coverage)](https://codeclimate.com/github/Onnion/marvel-catalog/test_coverage){:target="_blank"}
-[![Build Status](https://travis-ci.com/Onnion/marvel-catalog.svg?branch=master)](https://travis-ci.com/Onnion/marvel-catalog){:target="_blank"}
-[![Heroku](https://heroku-badge.herokuapp.com/?app=marvel-catalog-dextra)](https://marvel-catalog-dextra.herokuapp.com/){:target="_blank"}
+[![Maintainability](https://api.codeclimate.com/v1/badges/3e808891bb166803cf0e/maintainability)](https://codeclimate.com/github/Onnion/marvel-catalog/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/3e808891bb166803cf0e/test_coverage)](https://codeclimate.com/github/Onnion/marvel-catalog/test_coverage)
+[![Build Status](https://travis-ci.com/Onnion/marvel-catalog.svg?branch=master)](https://travis-ci.com/Onnion/marvel-catalog)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=marvel-catalog-dextra)](https://marvel-catalog-dextra.herokuapp.com/)
 
 
 
