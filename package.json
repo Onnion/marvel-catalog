@@ -2,9 +2,6 @@
   "name": "marvel-catolog",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "16.x"
-  },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -37,8 +34,7 @@
     "redux": "^4.0.5",
     "redux-mock-store": "^1.5.4",
     "styled-components": "^5.1.1",
-    "typesafe-actions": "^5.1.0",
-    "typescript": "~3.7.2"
+    "typesafe-actions": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -72,6 +68,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
     "eslint": "6.6.0",
-    "eslint-plugin-react": "^7.20.6"
+    "eslint-plugin-react": "^7.20.6",
+    "typescript": "^4.9.5"
   }
 }

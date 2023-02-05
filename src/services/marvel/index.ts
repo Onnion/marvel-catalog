@@ -2,7 +2,7 @@ import api from "..";
 import { MarvelResponse, Comic, ComicSummary, Image } from "../../common/types/marvel";
 import { AxiosResponse } from "axios";
 
-export const getCreators = async (id: number): Promise<any> => {
+export const getCreators = async (id: number): Promise<Comic[]> => {
     try {
         const response: AxiosResponse<MarvelResponse> = await api.get(`/comics/${id}/creators`);
         const data = response.data.data;
@@ -10,8 +10,7 @@ export const getCreators = async (id: number): Promise<any> => {
 
         return results || [];
     } catch (error) {
-        Promise.reject(error);
-        return error;
+        throw error;
     }
 };
 
@@ -26,8 +25,7 @@ export const getComics = async (offset: number): Promise<[Comic[], number]> => {
         return [results, offsetData];
 
     } catch (error) {
-        Promise.reject(error);
-        return error;
+        throw error;
     }
 };
 
@@ -42,8 +40,7 @@ export const getCharacters = async (offset: number): Promise<[any[], number]> =>
         return [results, offsetData];
 
     } catch (error) {
-        Promise.reject(error);
-        return error;
+        throw error;
     }
 };
 
@@ -61,8 +58,7 @@ export const searchCharacters = async (name: string): Promise<any> => {
 
         return [results, offsetData];
     } catch (error) {
-        Promise.reject(error);
-        return error;
+        throw error;
     }
 };
 
@@ -77,8 +73,8 @@ export const getComicsByCharacter = async (id: number): Promise<any> => {
             return [results, offsetData];
         }
     } catch (error) {
-        Promise.reject(error);
-        return error;
+        throw error;
+
     }
 };
 
@@ -90,7 +86,7 @@ export const getVariants = async (variants: ComicSummary[]): Promise<Image[]> =>
 
         return data;
     } catch (error) {
-        Promise.reject(error);
-        return error;
+        throw error;
+
     }
 };
