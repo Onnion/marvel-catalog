@@ -46,7 +46,7 @@
     "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint --quiet --fix --ext .tsx,.js .",
-    "heroku-prebuild": "bash configs/heroku-configs.sh"
+    "prebuild": "bash configs/heroku-configs.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
