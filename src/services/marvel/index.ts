@@ -80,9 +80,9 @@ export const getComicsByCharacter = async (id: number): Promise<any> => {
 
 export const getVariants = async (variants: ComicSummary[]): Promise<Image[]> => {
     try {
-        const geters = variants.map(variant => api.get(variant.resourceURI));
+        const geters = variants?.map(variant => api.get(variant.resourceURI));
         const response: AxiosResponse<MarvelResponse>[] = await Promise.all(geters);
-        const data = response.map(variantResponse => variantResponse.data.data.results[0].thumbnail);
+        const data = response?.map(variantResponse => variantResponse.data.data.results[0].thumbnail);
 
         return data;
     } catch (error) {
